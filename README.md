@@ -2,7 +2,7 @@ My NixOS configs
 ===
 
 # User Dependent Configs
-<sub>These contain persoanl information. Usernames and such.</sub>
+<sub>These contain personal information. Usernames and such.</sub>
 - user-loved.nix
 
 # Hardware Dependent Configs
