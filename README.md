@@ -1,7 +1,11 @@
 My NixOS configs
 ===
 
-# Hardware Dependant Configs
+# User Dependent Configs
+<sub>These contain persoanl information. Usernames and such.</sub>
+- user-loved.nix
+
+# Hardware Dependent Configs
 <sub>These need to be adjusted when using on another system.</sub>
 <sub>They are marked with "# hardware dependant" in said configs.</sub>
 - networking.nix
