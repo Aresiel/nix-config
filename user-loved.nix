@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let 
+  secrets = import ./secrets.nix;
+in
 {
   users.users.loved = {
     isNormalUser = true;
@@ -24,5 +26,11 @@
     ];
     programs.home-manager.enable = true;
     programs.rofi.enable = true;
+    programs.git = {
+    	enable = true;
+    	package = pkgs.gitAndTools.gitFull;
+    	userEmail = secrets.email;
+    	userName = "Aresiel";
+    };
   };
 }
