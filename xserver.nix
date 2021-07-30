@@ -29,11 +29,6 @@
         '';
       };
     };
-    displayManager.defaultSession = "none+i3";
-    windowManager = {
-      i3.enable = true;
-      i3.package = pkgs.i3-gaps;
-    };
     layout = "se";
     libinput.enable = true; # touchpad support
     videoDrivers = [ "nvidia" ];

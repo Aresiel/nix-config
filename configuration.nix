@@ -39,7 +39,6 @@
     pkgs.micro
     pkgs.wget
     pkgs.kitty
-    pkgs.polybarFull
     pkgs.xclip
     pkgs.gitFull
     pkgs.viu

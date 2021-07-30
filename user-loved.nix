@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 let 
   secrets = import ./secrets.nix;
+  colours = {
+  	fg = "#ffffff";
+  	bg = "#000000";
+  };
 in
 {
   users.users.loved = {
@@ -24,6 +28,14 @@ in
       pkgs.lutris
       pkgs.nixfmt
     ];
+
+	xsession.enable = true;
+    xsession.windowManager.i3 = {
+    	enable = true;
+    	package = pkgs.i3-gaps;
+    	config.bars = [];
+    };
+    
     programs.home-manager.enable = true;
     programs.rofi.enable = true;
     programs.git = {
@@ -32,5 +44,12 @@ in
     	userEmail = secrets.email;
     	userName = "Aresiel";
     };
+
+    services.polybar = {
+    	enable = true;
+    	package = pkgs.polybarFull;
+    	script = "polybar bottombar &\npolybar topbar &";
+    	# settings = ... CONFIGURE LATER
+    }; 
   };
 }
