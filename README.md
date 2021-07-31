@@ -4,6 +4,7 @@ My NixOS configs
 # User Dependent Configs
 <sub>These contain personal information. Usernames and such.</sub>
 - user-loved.nix
+- xserver.nix <sub>services.xserver.displayManager.lightdm.greeters.mini.user</sub>
 
 # Hardware Dependent Configs
 <sub>These need to be adjusted when using on another system.</sub>

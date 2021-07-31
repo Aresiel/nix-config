@@ -29,6 +29,12 @@
         '';
       };
     };
+    windowManager = {
+    	i3 = {
+    		enable = true;
+    		package = pkgs.i3-gaps; # Make sure matching userconfig
+    	};
+    };
     layout = "se";
     libinput.enable = true; # touchpad support
     videoDrivers = [ "nvidia" ];
