@@ -202,11 +202,98 @@ in
     		"bar/bottombar" = {
     			font."0" = "JetBrainsMono Nerd Font:style=Regular:size=13;4";
     			font."1" = "JetBrainsMono Nerd Font Mono:style=Regular:size=13;4";
-    			modules.left = "nixos";
+    			module.margin = 1;
+    			modules.left = "nixos i3";
+    			modules.right = "wireless volume battery date";
+    			bottom = true;
     		};
+    		
+    		"bar/topbar" = {
+    			font."0" = "JetBrainsMono Nerd Font:style=Regular:size=13;4";
+    			font."1" = "JetBrainsMono Nerd Font Mono:style=Regular:size=13;4";
+    			module.margin = 1;
+    			tray.position = "right";
+    			modules.center = "time";
+    			bottom = false;
+    		};
+
     		"module/nixos" = {
     			type = "custom/text";
-    			content = "";
+    			content = " ";
+    		};
+
+    		"module/time" = {
+    			type = "internal/date";
+    			date = "%H:%M:%S";
+    		};
+
+    		"module/date" = {
+    			type = "internal/date";
+    			date = "%A %d/%m";
+    		};
+
+    		"module/wireless" = {
+    			type = "internal/network";
+    			interface = "wlp0s20f3";
+
+    			format.connected = "<label-connected>";
+    			format.disconnected = "<label-disconnected>";
+    			format.packetloss = "Packetloss! <label-connected>";
+
+    			label.connected = "%upspeed% %downspeed% %local_ip% @ %essid%";
+    			label.disconnected = "Disconnected";
+    		};
+
+    		"module/battery" = {
+    			type = "internal/battery";
+    			battery = "BAT1";
+    			adapter = "ACAD";
+    			poll.interval = 5;
+    			full.at = 99;
+
+    			format.charging = "<ramp-capacity> <label-charging>";
+    			format.discharging = "<ramp-capacity> <label-discharging>";
+    			format.full = "<ramp-capacity> <label-full>";
+
+    			label.charging = "%percentage%%";
+    			label.discharging = "%percentage%%";
+    			label.full = "%percentage%%";
+
+    			ramp.capacity = [
+    				"" "" "" "" "" "" "" "" "" "" ""
+    			];
+    		};
+
+    		"module/i3" = {
+    			type = "internal/i3";
+    			pin.workspaces = true;
+    			strip.wsnumbers = true;
+    			index.sort = true;
+
+    			label.dimmed.underline = "#1f1f1f";
+    			format = "<label-state> <label-mode>";
+
+    			"label-mode" = "%mode%";
+    			label.mode.padding = 0;
+    			label.mode.background = "#e60053";
+
+    			"label-focused" = "%index%";
+    			label.focused.foreground = "#ffffff";
+    			label.focused.background = "#3f3f3f";
+    			label.focused.underline = "#fba922";
+    			label.focused.padding = 1;
+
+    			"label-unfocused" = "%index%";
+    			label.unfocused.padding = 1;
+
+    			"label-visible" = "%index%";
+    			label.visible.underline = "#555555";
+    			label.visible.padding = 1;
+
+    			"label-urgent" = "%index%";
+    			label.urgent.foreground = "#000000";
+    			label.urgent.background = "#bd2c40";
+    			label.urgent.padding = 1;
     		};
     	};
     };
