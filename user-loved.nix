@@ -4,6 +4,19 @@ let
   colours = {
   	fg = "#ffffff";
   	bg = "#000000";
+  	lightbg = "#bdbdbd";
+  	darkbg = "#2b2b2b";
+  	red = "#ff0037"; # All with HSL (LIGHTNESS 50, SAT 100)
+  	blue = "#0073ff";
+  	green = "#00ff37";
+  	yellow = "#ffe100";
+  	purple = "#a600ff";
+  	pink = "#ff00d0";
+  	orange = "#ff8400";
+  	lightblue = "#00eaff";
+  	white = "#ffffff";
+  	black = "#000000";
+  	unknownElement = "#00ff00";
   };
   i3 = {
   	mod = "Mod4";
@@ -203,7 +216,7 @@ in
     			font."0" = "JetBrainsMono Nerd Font:style=Regular:size=13;4";
     			font."1" = "JetBrainsMono Nerd Font Mono:style=Regular:size=13;4";
     			module.margin = 1;
-    			modules.left = "nixos i3";
+    			modules.left = "i3";
     			modules.right = "wireless volume battery date";
     			bottom = true;
     		};
@@ -244,6 +257,24 @@ in
     			label.disconnected = "Disconnected";
     		};
 
+    		"module/volume" = {
+    			type = "internal/pulseaudio";
+    			use.ui.max = false;
+    			interval = 5;
+
+    			format.volume = "<ramp-volume> <label-volume>";
+
+    			label.volume = "%percentage%";
+    			label.muted = "ﱝ %percentage%";
+
+    			ramp.volume = [
+    				"奄"
+    				"奔"
+    				"墳"
+    				""
+    			];
+    		};
+
     		"module/battery" = {
     			type = "internal/battery";
     			battery = "BAT1";
@@ -270,29 +301,29 @@ in
     			strip.wsnumbers = true;
     			index.sort = true;
 
-    			label.dimmed.underline = "#1f1f1f";
+    			label.dimmed.underline = colours.unknownElement; # idk what this is
     			format = "<label-state> <label-mode>";
 
     			"label-mode" = "%mode%";
     			label.mode.padding = 0;
-    			label.mode.background = "#e60053";
+    			label.mode.background = colours.bg;
 
     			"label-focused" = "%index%";
-    			label.focused.foreground = "#ffffff";
-    			label.focused.background = "#3f3f3f";
-    			label.focused.underline = "#fba922";
+    			label.focused.foreground = colours.fg;
+    			label.focused.background = colours.darkbg;
+    			label.focused.underline = colours.unknownElement; # idk what this is
     			label.focused.padding = 1;
 
     			"label-unfocused" = "%index%";
     			label.unfocused.padding = 1;
 
     			"label-visible" = "%index%";
-    			label.visible.underline = "#555555";
+    			label.visible.underline = colours.unknownElement; # idk what this is
     			label.visible.padding = 1;
 
     			"label-urgent" = "%index%";
-    			label.urgent.foreground = "#000000";
-    			label.urgent.background = "#bd2c40";
+    			label.urgent.foreground = colours.fg;
+    			label.urgent.background = colours.red;
     			label.urgent.padding = 1;
     		};
     	};
