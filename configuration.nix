@@ -47,6 +47,7 @@
     pkgs.flameshot
     pkgs.devour
     pkgs.gnome.adwaita-icon-theme
+    pkgs.qt4
     (pkgs.steam.override { withJava = true; })
   ];
 

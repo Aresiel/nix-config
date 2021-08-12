@@ -54,6 +54,10 @@ in
       pkgs.discord
       pkgs.lutris
       pkgs.nixfmt
+      pkgs.libreoffice-qt
+      pkgs.hunspell
+      pkgs.hunspellDicts.en_GB-large
+      pkgs.hunspellDicts.sv_SE
     ];
 
     home.keyboard.layout = "sv";
@@ -180,10 +184,10 @@ in
 			# power menu
 			set $Locker i3lock && sleep 1
 			
-			set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+			set $mode_system System (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 			mode "$mode_system" {
 				bindsym l exec --no-startup-id $Locker, mode "default"
-				bindsym e exec --no-startup-id i3-msg exit, mode "default"
+				bindsym o exec --no-startup-id i3-msg exit, mode "default"
 				bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
 				bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
 				bindsym r exec --no-startup-id systemctl reboot, mode "default"
@@ -195,6 +199,10 @@ in
 			}
 			
 			bindsym ${i3.mod}+Pause mode "$mode_system"
+
+			
+    	    exec --no-startup-id polybar bottombar 
+    	    exec --no-startup-id polybar topbar
     	'';
     };
     
@@ -210,7 +218,7 @@ in
     services.polybar = {
     	enable = true;
     	package = pkgs.polybarFull;
-    	script = "polybar bottombar &\npolybar topbar &";
+    	script = "";
     	settings = {
     		"bar/bottombar" = {
     			font."0" = "JetBrainsMono Nerd Font:style=Regular:size=13;4";
