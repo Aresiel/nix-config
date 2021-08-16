@@ -60,7 +60,11 @@ in
       pkgs.hunspellDicts.sv_SE
     ];
 
-    home.keyboard.layout = "sv";
+    home.keyboard = {
+      layout = "sv";
+      model = "acer_laptop";
+      variant = "qwerty";
+    };
 
 	xsession.enable = true;
     xsession.windowManager.i3 = {
