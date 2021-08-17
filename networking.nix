@@ -9,4 +9,10 @@
   networking.interfaces.wlp0s20f3.useDHCP = true; # hardware dependant
   networking.networkmanager.enable = true;
   networking.hostName = "love-nixos";
+
+  hardware.bluetooth = {
+  	powerOnBoot = true;
+  	package = pkgs.bluezFull;
+  	enable = true;
+  };
 }

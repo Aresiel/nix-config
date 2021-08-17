@@ -58,6 +58,11 @@ in
       pkgs.hunspell
       pkgs.hunspellDicts.en_GB-large
       pkgs.hunspellDicts.sv_SE
+      pkgs.jetbrains.phpstorm
+      pkgs.rclone
+      pkgs.rclone-browser
+      pkgs.gimp
+      pkgs.inkscape-with-extensions
     ];
 
     home.keyboard = {

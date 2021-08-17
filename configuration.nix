@@ -48,8 +48,13 @@
     pkgs.devour
     pkgs.gnome.adwaita-icon-theme
     pkgs.qt4
+    pkgs.bluez
+    pkgs.bluez-tools
     (pkgs.steam.override { withJava = true; })
   ];
+
+  # Bluetooth Control
+  services.blueman.enable = true;
 
   # Backlight control
   programs.light.enable = true;
