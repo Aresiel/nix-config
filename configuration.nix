@@ -14,6 +14,7 @@
     ./zsh-shell.nix
     ./steam.nix
     ./sound.nix
+    ./time.nix
     <home-manager/nixos>
   ];
 
@@ -22,9 +23,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Stockholm";
-
+  # Set locale
   i18n.defaultLocale = "en_GB.UTF-8";
 
   # Enable CUPS to print documents.

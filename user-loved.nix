@@ -1,23 +1,7 @@
 { config, pkgs, ... }:
 let 
   secrets = import ./secrets.nix;
-  colours = {
-  	fg = "#ffffff";
-  	bg = "#000000";
-  	lightbg = "#bdbdbd";
-  	darkbg = "#2b2b2b";
-  	red = "#ff0037"; # All with HSL (LIGHTNESS 50, SAT 100)
-  	blue = "#0073ff";
-  	green = "#00ff37";
-  	yellow = "#ffe100";
-  	purple = "#a600ff";
-  	pink = "#ff00d0";
-  	orange = "#ff8400";
-  	lightblue = "#00eaff";
-  	white = "#ffffff";
-  	black = "#000000";
-  	unknownElement = "#00ff00";
-  };
+  colours = import ./colours.nix;
   i3 = {
   	mod = "Mod4";
   	refreshi3Status = "killall -SIGUSR1 i3status";
@@ -196,7 +180,7 @@ in
 			set $mode_system System (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 			mode "$mode_system" {
 				bindsym l exec --no-startup-id $Locker, mode "default"
-				bindsym o exec --no-startup-id i3-msg exit, mode "default"
+				bindsym e exec --no-startup-id i3-msg exit, mode "default"
 				bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
 				bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
 				bindsym r exec --no-startup-id systemctl reboot, mode "default"
