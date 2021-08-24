@@ -47,6 +47,7 @@ in
       pkgs.rclone-browser
       pkgs.gimp
       pkgs.inkscape-with-extensions
+      pkgs.multimc
     ];
 
     home.keyboard = {
@@ -283,7 +284,7 @@ in
     			poll.interval = 5;
     			full.at = 99;
 
-    			format.charging = "<ramp-capacity> <label-charging>";
+    			format.charging = " <label-charging>";
     			format.discharging = "<ramp-capacity> <label-discharging>";
     			format.full = "<ramp-capacity> <label-full>";
 

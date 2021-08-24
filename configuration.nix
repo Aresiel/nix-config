@@ -52,6 +52,11 @@
     (pkgs.steam.override { withJava = true; })
   ];
 
+  programs.java = {
+  	enable = true;
+  	package = pkgs.jdk;
+  };
+
   # Bluetooth Control
   services.blueman.enable = true;
 

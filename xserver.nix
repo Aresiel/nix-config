@@ -15,7 +15,7 @@ in
           invalid-password-text = Invalid
           [greeter-theme]
           background-image = "/etc/lightdm/wallpaper.png"
-          password-character = *
+          password-character = 
           font = JetBrainsMono Nerd Font Mono:style=Regular
           window-color = "${colours.bg}"
           border-color = "${colours.fg}"
